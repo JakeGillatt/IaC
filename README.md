@@ -61,17 +61,17 @@ Ansible is an open-source automation tool for managing software and infrastructu
 
 Ansible is a powerful automation tool that can be used for a wide range of use cases related to IT infrastructure and software deployment. Some of the most common use cases for Ansible are:
 
-Configuration Management: It can be used to manage and automate the configuration of servers, network devices, and other IT infrastructure components, ensuring consistency and reducing the risk of errors and misconfigurations.
+- Configuration Management: It can be used to manage and automate the configuration of servers, network devices, and other IT infrastructure components, ensuring consistency and reducing the risk of errors and misconfigurations.
 
-Provisioning: It can be used to automate the process of provisioning new servers and other IT resources, reducing the time and effort required for manual setup and configuration.
+- Provisioning: It can be used to automate the process of provisioning new servers and other IT resources, reducing the time and effort required for manual setup and configuration.
 
-Application Deployment: It can be used to automate the deployment of applications, databases, and other software components across multiple servers and environments, reducing the risk of errors and ensuring consistency.
+- Application Deployment: It can be used to automate the deployment of applications, databases, and other software components across multiple servers and environments, reducing the risk of errors and ensuring consistency.
 
-Continuous Delivery: It can be used to automate the entire software delivery pipeline, from code deployment to testing and production rollout, enabling faster and more frequent releases with less risk.
+- Continuous Delivery: It can be used to automate the entire software delivery pipeline, from code deployment to testing and production rollout, enabling faster and more frequent releases with less risk.
 
-Orchestration: It can be used to orchestrate complex IT workflows and processes, such as disaster recovery, database backups, and system updates, ensuring reliability and reducing the risk of downtime.
+- Orchestration: It can be used to orchestrate complex IT workflows and processes, such as disaster recovery, database backups, and system updates, ensuring reliability and reducing the risk of downtime.
 
-Cloud Management: It can be used to automate the management of cloud infrastructure and resources, such as virtual machines, containers, and storage, across multiple cloud providers and regions.
+- Cloud Management: It can be used to automate the management of cloud infrastructure and resources, such as virtual machines, containers, and storage, across multiple cloud providers and regions.
 
 #
 # What is YAML and what are Playbooks?
