@@ -81,6 +81,10 @@ Ansible is a powerful automation tool that can be used for a wide range of use c
 - Ansible playbooks are YAML files that define tasks to be executed on target hosts, allowing for automation of a wide range of tasks including system configuration and application deployment.
 
 #
+# Ansible diagram:
+<img width="444" alt="Ansible Diagram" src="https://user-images.githubusercontent.com/129315605/236464058-d86390eb-6eb0-4d7b-930d-35b5cb61f74b.png">
+
+#
 # Setting up Ansible on our Local Virtual Machine
 
 1. Launch a virtual machine using ubuntu 18.04, with vagrant. - This will be our Ansible Controller VM
