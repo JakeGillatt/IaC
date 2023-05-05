@@ -80,3 +80,22 @@ Ansible is a powerful automation tool that can be used for a wide range of use c
 
 - Ansible playbooks are YAML files that define tasks to be executed on target hosts, allowing for automation of a wide range of tasks including system configuration and application deployment.
 
+#
+# Setting up Ansible on our Local Virtual Machine
+
+1. Launch a virtual machine using ubuntu 18.04, with vagrant. - This will be our Ansible Controller VM
+2. SSH into the VM and run the following commands:
+```
+sudo apt update -y
+sudo apt upgrade -y
+
+sudo apt install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+
+sudo apt update -y
+sudo apt install ansible
+
+ssh vagrant@192.168.33.10 # password is vagrant
+```
+3. Enter the password when prompted - When you type the password the characters will be invisible
+
