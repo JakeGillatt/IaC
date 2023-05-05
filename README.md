@@ -18,6 +18,9 @@ Infrastructure as code (IaC) is a way to manage infrastructure resources, like s
 #
 # Who is using IaC and how is it used in the industry?
 
+
+IaC is used by a wide range of organizations, from startups to large enterprises, across various industries, such as finance, healthcare, retail, and media. Some of the notable companies that use IaC include Netflix, Airbnb, Capital One, and GE.
+
 - Provisioning: It can be used to provision and configure infrastructure resources, such as virtual machines, storage, load balancers, and databases, in an automated and repeatable way.
 
 - Scaling: It can be used to scale up or down resources, based on demand or usage patterns, by adjusting the code that defines the desired state of the infrastructure.
