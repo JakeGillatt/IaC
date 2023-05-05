@@ -102,4 +102,4 @@ sudo apt install ansible
 ssh vagrant@192.168.33.10 # password is vagrant
 ```
 3. Enter the password when prompted - When you type the password the characters will be invisible
-
+4. Now we can launch our APP VM and our DB VM, run the update and upgrade commands on each.
