@@ -103,3 +103,37 @@ ssh vagrant@192.168.33.10 # password is vagrant
 ```
 3. Enter the password when prompted - When you type the password the characters will be invisible
 4. Now we can launch our APP VM and our DB VM, run the update and upgrade commands on each.
+
+#
+# Using an Ansible Controller VM to connect to other VM's and copy files over
+
+- We can connect into other VM's from the Controller using: e.g `ssh vagrant@192.168.33.10` – connects to web app – password is vagrant
+
+1. Connect to our Controller using `vagrant ssh controller`
+2. Go onto the /etc/ansible/ directory with `cd /etc/ansible/`
+3. Edit the 'hosts' file with `sudo nano hosts`
+4. Here we need to add our Web VM and DB vm by adding the following:
+```
+[web]
+192.168.33.10 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+
+[db]
+192.168.33.11 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+```
+5. Run `Sudo ansible all -m ping` to test the connections to both VM's
+6. If the db fails to ping, use `sudo nano /etc/ansible/ansible.conf` and add `Add host_key_checking = false` to the file, then save and repeat the ping command.
+7. Once both VM's are connected we can use the controller to interact with the VM's and retrieve information from them with commands such as:
+```
+Sudo ansible web -a “date” # gets the current time/date from the web vm
+sudo ansible db -a "date" # ^ gets date/time from db vm
+
+sudo ansible all -a "free" # check available memory within the vm’s
+
+sudo ansible all -a "ls" # gets info on files/folders within the vm’s
+```
+- These are just some examples ^
+8. To copy a file from the Controller VM to the web VM we can use `sudo ansible web -m copy -a "src=/etc/ansible/'file name' dest=/home/vagrant"` - replace the 'file name' with the file you wish to copy.
+- In this case I sent a 'testing.txt' file from my Controller to my Web VM's home directory.
+
+
+
