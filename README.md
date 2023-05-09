@@ -82,7 +82,8 @@ Ansible is a powerful automation tool that can be used for a wide range of use c
 
 #
 # Ansible diagram:
-<img width="444" alt="Ansible Diagram" src="https://user-images.githubusercontent.com/129315605/236464058-d86390eb-6eb0-4d7b-930d-35b5cb61f74b.png">
+<img width="444" alt="Ansible Diagram" src="https://github.com/JakeGillatt/IaC/assets/129315605/bd8b9d03-04d4-4b83-a5c9-67bcaa9e1900">
+
 
 #
 # Setting up Ansible on our Local Virtual Machine
