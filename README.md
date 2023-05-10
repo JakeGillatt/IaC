@@ -207,7 +207,9 @@ sudo ansible all -a "ls" # gets info on files/folders within the vm’s
 
     apt: pkg=npm state=present
 ```
-3. Save the file and use `sudo ansible-playbook install-nodejs-playbook.yml` to launch the playbook
+3. Save the file
+4. Transfer the app files to the web vm with `scp -r C:/Users/J4k3_/Documents/"SPARTA GLOBAL"/Virtualisation/app vagrant@192.168.33.10:/home/vagrant`
+5. Use `sudo ansible-playbook install-nodejs-playbook.yml` to launch the playbook
 - nodejs will now be installed along with its dependancies
 
 #
