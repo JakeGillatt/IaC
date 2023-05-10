@@ -135,5 +135,108 @@ sudo ansible all -a "ls" # gets info on files/folders within the vm’s
 8. To copy a file from the Controller VM to the web VM we can use `sudo ansible web -m copy -a "src=/etc/ansible/'file name' dest=/home/vagrant"` - replace the 'file name' with the file you wish to copy.
 - In this case I sent a 'testing.txt' file from my Controller to my Web VM's home directory.
 
+#
+# Using a playbook to install nginx
 
+1. In the Controller VM, cd to `/etc/ansible/`
+2. Run `sudo nano install-nginx-playbook.yml` to create a YAML file and enter the following:
+```
+# creating a playbook to install nginx
 
+# YAML file starts with ---
+
+---
+# where would you like to install nginx?
+
+- hosts: web
+  
+
+# would you like to see the logs?
+  
+  gather_facts: yes
+
+# do we need admin access? - "become: true" adds sudo to each command we use
+
+  become: true
+
+# add the instructions - commands. "pjg" = package, "state=present" tells us the statusA        
+
+  tasks:
+  - name: Install nginx in web-server
+
+    apt: pkg=nginx state=present
+```
+3. Save the file and use `sudo ansible-playbook install-nginx-playbook.yml` to launch the playbook
+- nginx will now be installed onto the web VM. Enter the web vm ip into your browser to test nginx is working
+
+#
+# Using a playbook to install NodeJs
+
+1. In the Controller VM, cd to `/etc/ansible/`
+2. Run `sudo nano install-nodejs-playbook.yml` to create a YAML file and enter the following:
+```
+# creating a playbook to install nodejs
+
+# YAML file starts with ---
+
+---
+# where would you like to install nodejs?
+
+- hosts: web
+  
+
+# would you like to see the logs?
+
+  gather_facts: yes
+
+# do we need admin access? - "become: true" adds sudo to each command we use
+
+  become: true
+
+# add the instructions - commands. "pkg" = package, "state=present" tells us the statusA        
+  tasks:
+  - name: Install python
+    apt: pkg=python state=present
+
+  tasks:
+  - name: Install nodejs
+    apt: pkg=nodejs state=present
+
+  tasks:
+  - name: Install npm
+
+    apt: pkg=npm state=present
+```
+3. Save the file and use `sudo ansible-playbook install-nodejs-playbook.yml` to launch the playbook
+- nodejs will now be installed along with its dependancies
+
+#
+# Using a playbook to install MongoDB on the database vm
+
+1. In the Controller VM, cd to `/etc/ansible/`
+2. Run `sudo nano install-mongodb-playbook.yml` to create a YAML file and enter the following:
+```
+# installing mongodb in the db VM/node
+---
+
+# where would you like to install nodejs?
+
+- hosts: db
+
+# would you like to see the logs?
+
+  gather_facts: yes
+
+# do we need admin access? (adds sudo to our commands)
+
+  become: true
+
+# add the instructions / commands to install:
+
+  tasks:
+  - name: install mongodb on db VM/node
+    apt: pkg=mongodb state=present
+
+# check status with adhoc commands 
+```
+3. Save the file and use `sudo ansible-playbook install-mongodb-playbook.yml` to launch the playbook
