@@ -242,3 +242,54 @@ sudo ansible all -a "ls" # gets info on files/folders within the vm’s
 # check status with adhoc commands 
 ```
 3. Save the file and use `sudo ansible-playbook install-mongodb-playbook.yml` to launch the playbook
+
+#
+# Using a playbook to automate changing the "bind_ip" in the mongodb.conf file
+
+1. create a playbook with `sudo nano mongodb-config.yml and enter:
+```
+---
+# where would you like to install nodejs?      
+
+- hosts: db
+
+# would you like to see the logs?
+
+  gather_facts: yes
+
+# do we need admin access? - "become: true" ad$
+
+  become: true
+
+# add the instructions - commands. "pkg" = pac$  tasks:
+  - name: change bind ip for mongodb
+    lineinfile:
+      path: /etc/mongodb.conf
+      regexp: 'bind_ip = 0.0.0.10'
+      line: 'bind_ip = 0.0.0.0'
+      backrefs: yes
+  - name: restart mongo
+    shell: systemctl restart mongodb
+
+  - name: enable mongodb
+    shell: systemctl enable mongodb
+```
+2. run the playbook and this will change the bind ip for mongodb
+
+#
+# Use a playbook to add an environment variable DB_HOST to connect the web to the db
+
+1. create a playbook with `sudo nano add-dbhost.yml and enter:
+```
+- hosts: web
+
+
+# would you like to see the logs?
+
+  gather_facts: yes
+  become: true
+
+  - name: change db host
+    shell: export DB_HOST=mongodb://192.168.33.11:27017/posts
+```
+2. run the playbook and this will add the variable DB_HOST
